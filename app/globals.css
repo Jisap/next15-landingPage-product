@@ -7,5 +7,5 @@
 }
 
 /* Permite aplicar la variante dark a cualquier elemento, ejemplo: "dark:bg-black" */
-@custom-variant dark (&:where(.dark, .dark*))
+@custom-variant dark (&:where(.dark, .dark *))
 

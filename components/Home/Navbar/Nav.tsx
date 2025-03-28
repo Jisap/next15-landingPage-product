@@ -36,7 +36,7 @@ const Nav = ({ openNav }: NavProps) => {
     <div className={clsx(
       "transition-all w-full  z-[100] duration-200 fixed",
       {
-        "shadow-xl h-[8vh] bg-pink-800": navBg,
+        "shadow-xl h-[8vh] bg-pink-700": navBg,
         "shadow-none  h-[12vh]": !navBg,
       }
     )}>
