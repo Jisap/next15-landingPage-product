@@ -5,6 +5,8 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { FaShoppingBag } from 'react-icons/fa'
 import { HiBars3BottomRight } from 'react-icons/hi2'
+import clsx from 'clsx';
+import ThemeToggle from '@/components/Helper/ThemeToggle'
 
 interface NavProps {
   openNav: () => void
@@ -22,21 +24,22 @@ const Nav = ({ openNav }: NavProps) => {
       }else{
         setNavBg(false)
       }
+    }
+    window.addEventListener('scroll', handler)
 
-      window.addEventListener('scroll', handler)
-
-      return () => {
-        window.removeEventListener('scroll', handler)
-      }
+    return () => {
+      window.removeEventListener('scroll', handler)
     }
   },[])
 
   return (
-    // TODO: Fix shadow add clsx
-    <div className={`
-      transition-all fixed w-full h-[12vh] z-[100] duration-200 bg-pink-700
-      ${navBg ? "bg-pink-700 shadow-2xl" : "fixed" }
-    `}>
+    <div className={clsx(
+      "transition-all w-full  z-[100] duration-200 bg-pink-700 fixed",
+      {
+        "shadow-xl h-[8vh]": navBg,
+        "shadow-none  h-[12vh]": !navBg,
+      }
+    )}>
       <div className='flex items-center h-full justify-between sm:w-[80%] w-[90%] mx-auto'>
         {/* logo */}
         <div className='text-white font-bold text-2xl sm:text-3xl'>
@@ -73,7 +76,11 @@ const Nav = ({ openNav }: NavProps) => {
               Buy Now
             </span>
           </a>
-          {/* theme switcher */}
+
+          {/* Theme switcher */}
+          <ThemeToggle />
+
+          {/* Burger menu */}
           <HiBars3BottomRight
              onClick={openNav}
              className='w-8 h-8 cursor-pointer text-white lg:hidden'
