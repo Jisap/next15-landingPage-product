@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
-
+@layer components {
+  .bg_clip {
+    clip-path: polygon(50% 0%, 100% 0, 100% 60%, 100% 83%, 0 100%, 0% 60%, 0 0);
+  }
+}
 
 /* Permite aplicar la variante dark a cualquier elemento, ejemplo: "dark:bg-black" */
 @custom-variant dark (&:where(.dark, .dark*))

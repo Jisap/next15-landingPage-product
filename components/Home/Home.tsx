@@ -1,8 +1,11 @@
+import Hero from "./Hero"
 
 
 const Home = () => {
   return (
-    <div className="h-[2000px] overflow-hidden">Home</div>
+    <div className="overflow-hidden">
+      <Hero />
+    </div>
   )
 }
 
