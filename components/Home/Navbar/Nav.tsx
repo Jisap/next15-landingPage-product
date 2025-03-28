@@ -1,6 +1,8 @@
+"use client"
+
 import { navLinks } from '@/constants/constant'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaShoppingBag } from 'react-icons/fa'
 import { HiBars3BottomRight } from 'react-icons/hi2'
 
@@ -11,10 +13,30 @@ interface NavProps {
 
 const Nav = ({ openNav }: NavProps) => {
 
+  const [navBg, setNavBg] = useState(false);
 
+  useEffect(() => {
+    const handler = () => {
+      if(window.scrollY >= 90) {
+        setNavBg(true)
+      }else{
+        setNavBg(false)
+      }
+
+      window.addEventListener('scroll', handler)
+
+      return () => {
+        window.removeEventListener('scroll', handler)
+      }
+    }
+  },[])
 
   return (
-    <div className='fixed w-full h-[12vh] z-[100] transition-all duration-200 bg-pink-700'>
+    // TODO: Fix shadow add clsx
+    <div className={`
+      transition-all fixed w-full h-[12vh] z-[100] duration-200 bg-pink-700
+      ${navBg ? "bg-pink-700 shadow-2xl" : "fixed" }
+    `}>
       <div className='flex items-center h-full justify-between sm:w-[80%] w-[90%] mx-auto'>
         {/* logo */}
         <div className='text-white font-bold text-2xl sm:text-3xl'>
