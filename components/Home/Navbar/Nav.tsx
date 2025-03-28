@@ -4,7 +4,15 @@ import React from 'react'
 import { FaShoppingBag } from 'react-icons/fa'
 import { HiBars3BottomRight } from 'react-icons/hi2'
 
-const Nav = () => {
+interface NavProps {
+  openNav: () => void
+}
+
+
+const Nav = ({ openNav }: NavProps) => {
+
+
+
   return (
     <div className='fixed w-full h-[12vh] z-[100] transition-all duration-200 bg-pink-700'>
       <div className='flex items-center h-full justify-between sm:w-[80%] w-[90%] mx-auto'>
@@ -44,7 +52,10 @@ const Nav = () => {
             </span>
           </a>
           {/* theme switcher */}
-          <HiBars3BottomRight className='w-8 h-8 cursor-pointer text-white lg:hidden' />
+          <HiBars3BottomRight
+             onClick={openNav}
+             className='w-8 h-8 cursor-pointer text-white lg:hidden'
+          />
         </div>
       </div>
     </div>
