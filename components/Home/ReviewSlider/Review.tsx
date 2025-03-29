@@ -1,4 +1,5 @@
 import React from 'react'
+import ReviewSlider from './ReviewSlider'
 
 const Review = () => {
   return (
@@ -9,6 +10,7 @@ const Review = () => {
       <span className='w-16 h-1 bg-pink-600 mx-auto mt-3 block'></span>
       <div className='w-[90%] sm:w-[80%] lg:w-[60%] mx-auto mt-16'>
         {/* Slider */}
+        <ReviewSlider />
       </div>
     </div>
   )

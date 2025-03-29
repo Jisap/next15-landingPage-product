@@ -63,18 +63,18 @@ export const aboutSections = [
 
 export const reviews = [
   {
-    text: "10k+ Customer&apos;s Trust Us",
-    author: "John Doe",
-    avatar: "/images/c1.png",
+    image: "/images/c1.png",
+    name: "John Doe",
+    role: "Founder Codex",
   },
   {
-    text: "15k+ satisfied customers",
-    author: "Susan Smith",
-    avatar: "/image/c2.png",
+    image: "/image/c2.png",
+    name: "Susan Smith",
+    role: "Founder TechBox",
   },
   {
-    text: "8k+ happy customers",
-    author: "Greg Brown",
-    avatar: "/image/c3.png",
+    image: "/image/c3.png",
+    name: "Greg Brown",
+    role: "Co-Founder Devex",
   }
 ]
